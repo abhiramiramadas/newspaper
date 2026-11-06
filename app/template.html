@@ -1,0 +1,40 @@
+\
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ edition.masthead }} — {{ edition.date }}</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+:root{--ink:#171717;--muted:#666;--line:#c9c5bd;--paper:#f8f6f0;--accent:#a33d2d}
+*{box-sizing:border-box}body{margin:0;background:#dedbd4;color:var(--ink);font-family:'DM Sans',sans-serif}
+.sheet{max-width:1050px;margin:28px auto;background:var(--paper);padding:34px 42px;box-shadow:0 12px 50px #0002}
+.masthead{text-align:center;border-bottom:4px double var(--ink);padding-bottom:14px}
+.kicker,.meta,.section-label,.source{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.09em;font-size:10px}
+h1{font:800 clamp(42px,8vw,82px)/.95 'Playfair Display',serif;letter-spacing:-.055em;margin:12px 0 8px}
+.deck{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:11px}
+.lead{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--ink)}
+.lead h2{font:700 38px/1.05 'Playfair Display',serif;margin:10px 0}
+.lead p{font-size:15px;line-height:1.55;color:#444}
+.hero-image{width:100%;height:260px;object-fit:cover;background:#e7e2d8}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 22px}
+.story{padding:18px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.story img{width:100%;height:135px;object-fit:cover;background:#e7e2d8;margin-bottom:10px}
+.story h3{font:700 21px/1.12 'Playfair Display',serif;margin:7px 0}
+.story p{font-size:12px;line-height:1.5;color:#444;margin:7px 0}
+.story a{color:var(--accent);font:500 10px 'DM Mono',monospace;text-decoration:none}
+.section-label{color:var(--accent)}
+.why{font-size:11px!important;color:#71675c!important;font-style:italic}
+.footer{margin-top:22px;background:#171717;color:#f8f6f0;padding:22px;text-align:center}
+.footer strong{font:700 27px 'Playfair Display',serif}.footer p{font-size:12px;color:#d5d0c8;margin:7px 0 0}
+@media(max-width:700px){.sheet{margin:0;padding:22px 18px}.lead{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.lead h2{font-size:31px}}
+@media print{body{background:white}.sheet{max-width:none;margin:0;padding:0;box-shadow:none}.story{break-inside:avoid}.lead{break-inside:avoid}a:after{content:""}}
+</style></head><body><main class="sheet">
+<header class="masthead"><div class="kicker">An independent daily · Curated for one curious mind</div>
+<h1>{{ edition.masthead }}</h1><div class="deck"><span>{{ edition.date }}</span><span>NO. {{ edition.edition_number }}</span><span>{{ edition.reading_time }}</span></div></header>
+{% set lead = edition.stories[0] if edition.stories else none %}
+{% if lead %}<section class="lead"><div><div class="section-label">THE LEAD · {{ lead.section }}</div><h2>{{ lead.headline }}</h2><p><b>{{ lead.dek }}</b></p><p>{{ lead.summary }}</p><div class="source">{{ lead.source }} · <a href="{{ lead.url }}">READ THE ORIGINAL ↗</a></div></div>
+{% if lead.image %}<img class="hero-image" src="{{ lead.image }}" alt="Lead story image">{% else %}<div class="hero-image"></div>{% endif %}</section>{% endif %}
+<section class="grid">{% for s in edition.stories[1:] %}<article class="story">
+{% if s.image %}<img src="{{ s.image }}" alt="">{% endif %}
+<div class="section-label">{{ s.section }}</div><h3>{{ s.headline }}</h3><p><b>{{ s.dek }}</b></p><p>{{ s.summary }}</p><p class="why">{{ s.why_it_matters }}</p><div class="source">{{ s.source }} · <a href="{{ s.url }}">OPEN STORY ↗</a></div></article>{% endfor %}</section>
+<footer class="footer"><strong>You're caught up.</strong><p>{{ edition.caught_up }}</p><p style="font:10px 'DM Mono',monospace;letter-spacing:.08em;margin-top:12px">THE DAILY ABBY · END OF EDITION</p></footer>
+</main></body></html>

@@ -1,0 +1,145 @@
+{
+  "youtube_channels": [
+    {
+      "name": "freeCodeCamp.org",
+      "channel_id": "UC8butISFwT-Wl7EV0hUK0BQ",
+      "section": "Developer Desk"
+    },
+    {
+      "name": "Jun Yuh",
+      "channel_id": "UClDcKhHgT3x88I0q7BOT0ow",
+      "section": "Developer Desk"
+    },
+    {
+      "name": "ForrestKnight",
+      "channel_id": "UC2WHjPDvbE6O328n17ZGcfg",
+      "section": "Developer Desk"
+    },
+    {
+      "name": "CodeWithHarry",
+      "channel_id": "UCeVMnSShP_Iviwkknt83cww",
+      "section": "Developer Desk"
+    },
+    {
+      "name": "NeetCode",
+      "channel_id": "UC_mYaQAE6-71rjSN6CeCA-g",
+      "section": "Developer Desk"
+    },
+    {
+      "name": "Ali Abdaal",
+      "channel_id": "UCoOae5nYA7VqaXzerajD0lg",
+      "section": "Ideas & Productivity"
+    },
+    {
+      "name": "Nashallery",
+      "channel_id": "UC85tiypNIvzR5xu91KN-rnQ",
+      "section": "Reading Room"
+    },
+    {
+      "name": "earthlingzee",
+      "channel_id": "UCNxppjFlSI1yxUDzIfd38Jw",
+      "section": "Reading Room"
+    },
+    {
+      "name": "Robin Waldun",
+      "channel_id": "UCafEZMU5s8geb9oIly6xTrg",
+      "section": "Reading Room"
+    },
+    {
+      "name": "Ray Hon",
+      "channel_id": "UCHqXOd3-QSGWjyZJ-q1F-KA",
+      "section": "Study Desk"
+    },
+    {
+      "name": "Ang",
+      "channel_id": "UCVlvuoqC8nd-c_2rHZsGpeQ",
+      "section": "Study Desk"
+    },
+    {
+      "name": "Gate Smashers",
+      "channel_id": "UCJihyK0A38SZ6SdJirEdIOw",
+      "section": "Study Desk"
+    },
+    {
+      "name": "Neso Academy",
+      "channel_id": "UCQYMhOMi_Cdj1CEAU-fv80A",
+      "section": "Study Desk"
+    },
+    {
+      "name": "Thomas Frank",
+      "channel_id": "UCG-KntY7aVnIGXYEBQvmBAQ",
+      "section": "Ideas & Productivity"
+    },
+    {
+      "name": "Penrose",
+      "channel_id": "UCCnRgdvs5REvtEbOtivzawQ",
+      "section": "Ideas & Productivity"
+    },
+    {
+      "name": "Sisyphus 55",
+      "channel_id": "UCDETFHKteb-C_EaXmRKvP4w",
+      "section": "Ideas & Psychology"
+    },
+    {
+      "name": "Thewizardliz",
+      "channel_id": "UC64KwGynvj3hA7T0C9gC5cA",
+      "section": "Ideas & Psychology"
+    }
+  ],
+  "rss": [
+    {
+      "name": "OpenAI News (official)",
+      "url": "https://openai.com/news/rss.xml",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "Google DeepMind (official)",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "Google AI (official)",
+      "url": "https://blog.google/technology/ai/rss/",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "Anthropic / Claude coverage",
+      "url": "https://news.google.com/rss/search?q=Anthropic+OR+Claude&hl=en-US&gl=US&ceid=US:en",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "Hacker News \u2013 AI",
+      "url": "https://hnrss.org/newest?q=AI&points=30",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "arXiv \u2013 Artificial Intelligence",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "section": "World & Science"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/",
+      "section": "World & Science"
+    }
+  ],
+  "github_repos": [
+    {
+      "name": "anthropics/claude-code",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "google-gemini/gemini-cli",
+      "section": "AI Dispatch"
+    },
+    {
+      "name": "microsoft/vscode",
+      "section": "Developer Desk"
+    }
+  ]
+}

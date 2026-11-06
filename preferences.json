@@ -1,0 +1,43 @@
+{
+  "masthead": "THE DAILY ABBY",
+  "timezone": "Asia/Kolkata",
+  "schedule": "06:00",
+  "interest_weights": {
+    "AI & Technology": 50,
+    "World, Science & Business": 30,
+    "Culture, Books & Psychology": 60,
+    "Lifestyle, Design & Curiosity": 60
+  },
+  "reading_length": "medium",
+  "delivery": [
+    "website",
+    "pdf"
+  ],
+  "max_stories": 12,
+  "editorial_profile": {
+    "youtube": [
+      "study and focus",
+      "computer science and coding",
+      "reading journals and book annotation",
+      "productivity and self-improvement",
+      "Korean/Japanese student vlogs",
+      "language learning"
+    ],
+    "instagram": [
+      "books and literature",
+      "writing and essays",
+      "journaling and stationery",
+      "fashion and beauty",
+      "design and aesthetics",
+      "communication and public speaking",
+      "humour and pop culture"
+    ],
+    "explicit_interest": [
+      "AI news",
+      "Claude",
+      "Gemini",
+      "AI agents",
+      "developer tools"
+    ]
+  }
+}
