@@ -93,7 +93,7 @@ def curate(items):
     key=os.environ.get("GEMINI_API_KEY")
     if not key: raise RuntimeError("Missing GEMINI_API_KEY environment variable")
     client=genai.Client(api_key=key)
-    model=os.environ.get("GEMINI_MODEL","gemini-2.5-flash")
+    model=os.environ.get("GEMINI_MODEL","gemini-3.8-flash")
     payload=[{k:x[k] for k in ("title","url","summary","source","section","kind")} for x in items[:100]]
     prompt=f"""
 You are the editor of {prefs['masthead']}, a finite personal newspaper.
