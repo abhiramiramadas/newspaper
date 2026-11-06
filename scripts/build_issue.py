@@ -46,16 +46,32 @@ def fetch_youtube(channel):
     url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel['channel_id']}"
     feed = feedparser.parse(url)
     out = []
+
     for e in feed.entries:
-        if not is_recent(e): continue
+        if not is_recent(e):
+            continue
+
         title = clean(e.get("title", ""))
-if re.search(r"\b(live|livestream|study with me|pomodoro stream)\b", title, re.I): continue
+
+        if re.search(r"\b(live|livestream|study with me|pomodoro stream)\b", title, re.I):
+            continue
+
         video_id = e.get("yt_videoid", "")
-        out.append({"title": title, "url": e.get("link", ""),
-                    "summary": clean(e.get("summary", ""))[:900], "source": channel["name"],
-                    "section": channel["section"], "image": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg" if video_id else "",
-                    "kind": "video", "published": e.get("published", "")})
-        if len(out) >= 8: break
+
+        out.append({
+            "title": title,
+            "url": e.get("link", ""),
+            "summary": clean(e.get("summary", ""))[:900],
+            "source": channel["name"],
+            "section": channel["section"],
+            "image": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg" if video_id else "",
+            "kind": "video",
+            "published": e.get("published", "")
+        })
+
+        if len(out) >= 8:
+            break
+
     return out
 
 def fetch_github(repo):
