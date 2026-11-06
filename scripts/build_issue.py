@@ -1,7 +1,10 @@
 \
+
+
 import os, json, re, hashlib, datetime, pathlib, html, calendar
 import feedparser, requests
 from google import genai
+from google.genai import errors
 from jinja2 import Template
 from playwright.sync_api import sync_playwright
 
@@ -108,7 +111,36 @@ Return ONLY valid JSON: {{"edition_note":"...","lead_index":integer,"stories":[{
 Items:
 {json.dumps(payload,ensure_ascii=False)}
 """
-    response=client.models.generate_content(model=model, contents=prompt)
+        fallback_models = [
+        m.strip() for m in os.environ.get(
+            "GEMINI_FALLBACK_MODELS",
+            "gemini-3.7-flash,gemini-3.6-flash"
+        ).split(",") if m.strip()
+    ]
+
+    models_to_try = list(dict.fromkeys([model, *fallback_models]))
+    response = None
+    last_error = None
+
+    for candidate_model in models_to_try:
+        try:
+            print(f"Generating edition with {candidate_model}")
+            response = client.models.generate_content(
+                model=candidate_model,
+                contents=prompt
+            )
+            print(f"Generation succeeded with {candidate_model}")
+            break
+        except errors.APIError as exc:
+            if exc.code not in (500, 502, 503, 504):
+                raise
+            last_error = exc
+            print(f"{candidate_model} unavailable ({exc.code}). Trying next model.")
+
+    if response is None:
+        raise RuntimeError(
+            f"All Gemini models were unavailable. Last error: {last_error}"
+        ) from last_error
     raw=response.text.strip()
     raw=re.sub(r"^```(?:json)?|```$", "", raw, flags=re.M).strip()
     data=json.loads(raw)
