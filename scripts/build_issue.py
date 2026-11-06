@@ -1,5 +1,3 @@
-\
-
 
 import os, json, re, hashlib, datetime, pathlib, html, calendar
 import feedparser, requests
@@ -51,7 +49,7 @@ def fetch_youtube(channel):
     for e in feed.entries:
         if not is_recent(e): continue
         title = clean(e.get("title", ""))
-        if re.search(r"\\b(live|livestream|study with me|pomodoro stream)\\b", title, re.I): continue
+if re.search(r"\b(live|livestream|study with me|pomodoro stream)\b", title, re.I): continue
         video_id = e.get("yt_videoid", "")
         out.append({"title": title, "url": e.get("link", ""),
                     "summary": clean(e.get("summary", ""))[:900], "source": channel["name"],
@@ -111,11 +109,13 @@ Return ONLY valid JSON: {{"edition_note":"...","lead_index":integer,"stories":[{
 Items:
 {json.dumps(payload,ensure_ascii=False)}
 """
-        fallback_models = [
-        m.strip() for m in os.environ.get(
+    fallback_models = [
+        m.strip()
+        for m in os.environ.get(
             "GEMINI_FALLBACK_MODELS",
             "gemini-3.7-flash,gemini-3.6-flash"
-        ).split(",") if m.strip()
+        ).split(",")
+        if m.strip()
     ]
 
     models_to_try = list(dict.fromkeys([model, *fallback_models]))
@@ -135,13 +135,17 @@ Items:
             if exc.code not in (500, 502, 503, 504):
                 raise
             last_error = exc
-            print(f"{candidate_model} unavailable ({exc.code}). Trying next model.")
+            print(
+                f"{candidate_model} unavailable ({exc.code}). "
+                "Trying next model."
+            )
 
     if response is None:
         raise RuntimeError(
             f"All Gemini models were unavailable. Last error: {last_error}"
         ) from last_error
-    raw=response.text.strip()
+
+    raw = response.text.strip()
     raw=re.sub(r"^```(?:json)?|```$", "", raw, flags=re.M).strip()
     data=json.loads(raw)
     chosen=[]
