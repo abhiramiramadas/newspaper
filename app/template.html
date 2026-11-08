@@ -1,4 +1,3 @@
-\
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ edition.masthead }} — {{ edition.date }}</title>
@@ -6,8 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 :root{--ink:#171717;--muted:#666;--line:#c9c5bd;--paper:#f8f6f0;--accent:#a33d2d}
 *{box-sizing:border-box}body{margin:0;background:#dedbd4;color:var(--ink);font-family:'DM Sans',sans-serif}
-.sheet{max-width:1050px;margin:28px auto;background:var(--paper);padding:34px 42px;box-shadow:0 12px 50px #0002}
-.masthead{text-align:center;border-bottom:4px double var(--ink);padding-bottom:14px}
+.sheet{max-width:1050px;margin:28px auto;background:var(--paper);padding:24px 42px 34px;box-shadow:0 12px 50px #0002}
+.archive-nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.archive-nav a{color:var(--accent);font:500 10px 'DM Mono',monospace;letter-spacing:.09em;text-decoration:none;text-transform:uppercase}
+.archive-nav span{color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.masthead{text-align:center;border-bottom:4px double var(--ink);padding:14px 0}
 .kicker,.meta,.section-label,.source{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.09em;font-size:10px}
 h1{font:800 clamp(42px,8vw,82px)/.95 'Playfair Display',serif;letter-spacing:-.055em;margin:12px 0 8px}
 .deck{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:11px}
@@ -25,9 +27,10 @@ h1{font:800 clamp(42px,8vw,82px)/.95 'Playfair Display',serif;letter-spacing:-.0
 .why{font-size:11px!important;color:#71675c!important;font-style:italic}
 .footer{margin-top:22px;background:#171717;color:#f8f6f0;padding:22px;text-align:center}
 .footer strong{font:700 27px 'Playfair Display',serif}.footer p{font-size:12px;color:#d5d0c8;margin:7px 0 0}
-@media(max-width:700px){.sheet{margin:0;padding:22px 18px}.lead{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.lead h2{font-size:31px}}
-@media print{body{background:white}.sheet{max-width:none;margin:0;padding:0;box-shadow:none}.story{break-inside:avoid}.lead{break-inside:avoid}a:after{content:""}}
+@media(max-width:700px){.sheet{margin:0;padding:18px}.lead{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.lead h2{font-size:31px}}
+@media print{body{background:white}.sheet{max-width:none;margin:0;padding:0;box-shadow:none}.archive-nav{display:none}.story{break-inside:avoid}.lead{break-inside:avoid}a:after{content:""}}
 </style></head><body><main class="sheet">
+<nav class="archive-nav"><a href="../../">← All editions</a><span>{{ edition.date }} · No. {{ edition.edition_number }}</span></nav>
 <header class="masthead"><div class="kicker">An independent daily · Curated for one curious mind</div>
 <h1>{{ edition.masthead }}</h1><div class="deck"><span>{{ edition.date }}</span><span>NO. {{ edition.edition_number }}</span><span>{{ edition.reading_time }}</span></div></header>
 {% set lead = edition.stories[0] if edition.stories else none %}

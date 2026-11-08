@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <title>{{ archive.masthead }} — Newspaper Archive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+    :root{--ink:#20201e;--muted:#77736b;--line:#d9d4ca;--paper:#f3f0e8;--card:#fffefa;--accent:#a34332;--soft:#e9e3d8}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif}
+    .wrap{max-width:1160px;margin:0 auto;padding:38px 34px 64px}
+    .topline{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px;color:var(--muted);font:11px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+    .brand{color:var(--accent);font-weight:500}
+    .masthead{text-align:center;padding:46px 0 32px;border-bottom:4px double var(--ink)}
+    .eyebrow{font:11px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+    h1{font:800 clamp(48px,8vw,88px)/.94 'Playfair Display',serif;letter-spacing:-.055em;margin:13px 0 12px}
+    .subtitle{max-width:560px;margin:0 auto;color:#625e57;font-size:15px;line-height:1.65}
+    .stats{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+    .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:28px 0 20px}
+    .section-title{font:700 27px 'Playfair Display',serif}
+    .filters{display:flex;gap:9px;flex-wrap:wrap}
+    input,select{font:12px 'DM Sans',sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:11px 12px;outline:none}
+    input{width:min(280px,48vw)}
+    input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 2px #a3433218}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .edition{position:relative;display:flex;flex-direction:column;min-height:270px;background:var(--card);border:1px solid var(--line);border-radius:7px;padding:20px 20px 18px;box-shadow:0 3px 12px #28231a08;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .edition:hover{transform:translateY(-3px);border-color:#b8a99b;box-shadow:0 12px 28px #28231a12}
+    .edition-top{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px}
+    .date{font:500 11px 'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+    .number{font:10px 'DM Mono',monospace;color:var(--muted)}
+    .tag{margin-top:17px;color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.11em;text-transform:uppercase}
+    h2{font:700 25px/1.12 'Playfair Display',serif;margin:8px 0 9px;letter-spacing:-.02em}
+    .dek{font-size:13px;line-height:1.55;color:#625e57;margin:0 0 18px}
+    .edition-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:15px;border-top:1px solid var(--line)}
+    .count{font:10px 'DM Mono',monospace;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .links{display:flex;gap:13px;align-items:center}
+    .links a{font:500 10px 'DM Mono',monospace;letter-spacing:.05em;text-decoration:none;color:var(--accent);text-transform:uppercase}
+    .links a:hover{text-decoration:underline}
+    .empty{grid-column:1/-1;text-align:center;border:1px dashed #c9c1b5;border-radius:7px;padding:58px 20px;background:#fffefa70}
+    .empty h2{margin:0 0 8px;font-size:29px}
+    .empty p{margin:0;color:var(--muted);font-size:14px}
+    .footer{margin-top:40px;border-top:4px double var(--ink);padding-top:17px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.wrap{padding:22px 16px 42px}.masthead{padding:35px 0 27px}.toolbar{align-items:flex-start;flex-direction:column}.filters{width:100%}input{flex:1;width:auto}.grid{grid-template-columns:1fr}.edition{min-height:240px}.footer{flex-direction:column}.topline{font-size:9px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topline"><span class="brand">{{ archive.masthead }}</span><span>Personal Newspaper Library</span><span>Est. 2026</span></div>
+    <header class="masthead">
+      <div class="eyebrow">Your reading history, in one place</div>
+      <h1>The Archive</h1>
+      <p class="subtitle">Every morning's edition, saved by date. Pick a day, reopen the paper, or keep a PDF for later.</p>
+      <div class="stats"><span>{{ archive.edition_count }} editions saved</span><span>Newest first</span><span>Updated {{ archive.updated }}</span></div>
+    </header>
+
+    <section aria-label="Saved editions">
+      <div class="toolbar">
+        <div class="section-title">All editions <span style="font:11px 'DM Mono',monospace;color:var(--muted)">({{ archive.edition_count }})</span></div>
+        <div class="filters">
+          <input id="search" type="search" placeholder="Search dates or headlines…" aria-label="Search editions">
+          <select id="year" aria-label="Filter by year"><option value="">All years</option>{% for year in archive.years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}</select>
+        </div>
+      </div>
+      <div class="grid" id="edition-grid">
+        {% for edition in archive.editions %}
+        <article class="edition" data-year="{{ edition.date_iso[:4] }}" data-search="{{ (edition.date_label ~ ' ' ~ edition.lead_headline ~ ' ' ~ edition.lead_section ~ ' ' ~ edition.lead_dek)|lower }}">
+          <div class="edition-top"><span class="date">{{ edition.date_label }}</span><span class="number">NO. {{ edition.edition_number }}</span></div>
+          <div class="tag">{{ edition.lead_section }}</div>
+          <h2>{{ edition.lead_headline }}</h2>
+          <p class="dek">{{ edition.lead_dek }}</p>
+          <div class="edition-bottom">
+            <span class="count">{{ edition.story_count }} stories</span>
+            <div class="links"><a href="{{ edition.edition_url }}">Read edition ↗</a><a href="{{ edition.pdf_url }}">PDF ↓</a></div>
+          </div>
+        </article>
+        {% else %}
+        <div class="empty" id="empty-state"><h2>Your first edition is on its way.</h2><p>Once Daily Abby completes its next successful run, the issue will appear here as a dated card.</p></div>
+        {% endfor %}
+        <div class="empty" id="no-results" hidden><h2>No editions found.</h2><p>Try another date or clear your search.</p></div>
+      </div>
+    </section>
+    <footer class="footer"><span>{{ archive.masthead }} · The Archive</span><span>One day. One paper. One less scroll.</span></footer>
+  </main>
+  <script>
+    const search = document.getElementById('search');
+    const year = document.getElementById('year');
+    const cards = [...document.querySelectorAll('.edition')];
+    const noResults = document.getElementById('no-results');
+    function filterEditions(){
+      const q = (search.value || '').trim().toLowerCase();
+      const y = year.value;
+      let visible = 0;
+      cards.forEach(card => {
+        const match = (!q || card.dataset.search.includes(q)) && (!y || card.dataset.year === y);
+        card.hidden = !match;
+        if(match) visible++;
+      });
+      if(noResults) noResults.hidden = visible !== 0 || cards.length === 0;
+    }
+    search.addEventListener('input', filterEditions);
+    year.addEventListener('change', filterEditions);
+  </script>
+</body>
+</html>

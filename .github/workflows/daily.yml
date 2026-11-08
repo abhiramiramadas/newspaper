@@ -4,30 +4,40 @@ on:
     - cron: "30 0 * * *" # 06:00 Asia/Kolkata
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+concurrency:
+  group: daily-abby-publication
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
       - run: playwright install --with-deps chromium
-      - name: Build newspaper
+      - name: Build newspaper edition and archive
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/build_issue.py
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: daily-abby-${{ github.run_number }}
-          path: output/daily-abby.pdf
-          retention-days: 14
+      - name: Save editions to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output
+          if git diff --cached --quiet; then
+            echo "No archive changes to save."
+          else
+            git commit -m "Publish Daily Abby archive edition"
+            git push origin HEAD:main
+          fi
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v3
         with:
