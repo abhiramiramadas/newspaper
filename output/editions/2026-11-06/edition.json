@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-06",
+  "date_label": "Friday, 06 November 2026",
+  "edition_number": "20261106",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 8,
+  "lead_section": "Developer Desk",
+  "lead_headline": "Claude Code 2.1.319 Rolls Out Background MCP Tasks and Latency Optimization",
+  "lead_dek": "Anthropic's command-line agent tool introduces background execution for Model Context Protocol servers and automated latency profiling.",
+  "curation_mode": "Recovered original PDF from GitHub Actions artifact"
+}

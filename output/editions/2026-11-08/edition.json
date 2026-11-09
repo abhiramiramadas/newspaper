@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-08",
+  "date_label": "Sunday, 08 November 2026",
+  "edition_number": "20261108",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 8,
+  "lead_section": "AI & Developer Tools",
+  "lead_headline": "Security Warning for Claude Code: 'Don't Ask Again' Files Expose Sensitive Keys",
+  "lead_dek": "A cybersecurity report reveals that over a thousand public GitHub repositories are inadvertently leaking developer credentials and passwords via Claude Code configuration files.",
+  "curation_mode": "Recovered original PDF from GitHub Actions artifact"
+}
