@@ -4,8 +4,8 @@
   "edition_number": "20261109",
   "masthead": "THE DAILY ABBY",
   "story_count": 10,
-  "lead_section": "AI & Developer Tools",
-  "lead_headline": "Claude Code, Codex, and Cursor Quietly Infiltrate the Enterprise Software Supply Chain",
-  "lead_dek": "Developer-facing AI assistants are entering production workflows faster than security policies can adapt.",
+  "lead_section": "Developer Tools",
+  "lead_headline": "Claude Code and Cursor Enter the Software Supply Chain Without Approval",
+  "lead_dek": "Unsanctioned AI development assistants are slipping into production pipelines, creating hidden security and compliance challenges.",
   "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
 }
