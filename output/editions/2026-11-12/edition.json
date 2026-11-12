@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-12",
+  "date_label": "Thursday, 12 November 2026",
+  "edition_number": "20261112",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 12,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Google Introduces Gemini Decisions API for Fast Multimodal Workflows",
+  "lead_dek": "Google AI launches a calibrated API model designed specifically for fast, accurate multimodal decision-making.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
