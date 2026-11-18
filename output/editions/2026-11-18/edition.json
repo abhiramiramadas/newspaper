@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-18",
+  "date_label": "Wednesday, 18 November 2026",
+  "edition_number": "20261118",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 12,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Language Models Can Now Reason About and Rewrite Their Own Weights",
+  "lead_dek": "Researchers demonstrate that a 27B model can diagnose errors and modify its parameter weights without gradients.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
