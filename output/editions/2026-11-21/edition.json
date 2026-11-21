@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-21",
+  "date_label": "Saturday, 21 November 2026",
+  "edition_number": "20261121",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 12,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Anthropic Mathematician Claims Proof of Riemann Hypothesis Assisted by Claude",
+  "lead_dek": "An Anthropic researcher reportedly uses Claude to assist in proving mathematics' most famous unsolved problem.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
