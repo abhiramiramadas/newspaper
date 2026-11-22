@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-22",
+  "date_label": "Sunday, 22 November 2026",
+  "edition_number": "20261122",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 6,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Independent Verifiers Confirm Claude’s Role in Solving Complex Math Problem",
+  "lead_dek": "Two independent research teams have validated a mathematician's milestone achievement using Anthropic's AI assistant.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
