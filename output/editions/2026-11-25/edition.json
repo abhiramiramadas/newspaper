@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-25",
+  "date_label": "Wednesday, 25 November 2026",
+  "edition_number": "20261125",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 11,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Claude Code v2.1.332 Brings MCP Server Skills and Shell Safety Hooks",
+  "lead_dek": "Anthropic updates its CLI tool with Model Context Protocol skill integration and PreSkillShellCommand execution safety hooks.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
