@@ -1,0 +1,11 @@
+{
+  "date_iso": "2026-11-26",
+  "date_label": "Thursday, 26 November 2026",
+  "edition_number": "20261126",
+  "masthead": "THE DAILY ABBY",
+  "story_count": 12,
+  "lead_section": "AI Dispatch",
+  "lead_headline": "Anthropic Enables Claude to Export Custom Workflows Directly into Desktop Apps",
+  "lead_dek": "New capabilities allow users to turn prompt-driven automations and outputs into standalone native desktop software.",
+  "curation_mode": "AI-curated (gemini-3.8-flash with fallback support)"
+}
